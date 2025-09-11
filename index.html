@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteStonesProperties</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container d-flex align-items-center">
+            <div class="ms-auto header-actions me-3"> <!-- me-3 adds right margin -->
+                <a class="action-icon phone" href="tel:+918105411046" aria-label="Call">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+
+            <a class="navbar-brand fw-bold text-dark ms-3 me-3" href="#home" style="background: transparent;" data-bs-toggle="offcanvas" href="#sidebarMenu" role="button" aria-controls="sidebarMenu" aria-label="Menu">
+                <img style="margin-bottom:auto" src="./image/logo.jpg" alt="WhiteStonesProperties" height="40">
+                whitestonesproperties
+            </a>
+
+
+        </div>
+    </nav>
+
+    <!-- Sidebar Offcanvas -->
+    <div class="offcanvas offcanvas-start bg-transparent text-white" tabindex="-1" id="sidebarMenu"
+        aria-labelledby="sidebarMenuLabel"
+        style="backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.1); width: 300px;">
+
+        <div class="offcanvas-header border-0">
+            <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column gap-3">
+            <a class="nav-link text-white" href="#home" data-bs-dismiss="offcanvas">Home</a>
+            <a class="nav-link text-white" href="#properties" data-bs-dismiss="offcanvas">Properties</a>
+            <a class="nav-link text-white" href="#about" data-bs-dismiss="offcanvas">About</a>
+            <a class="nav-link text-white" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
+
+            <div class="mt-3 d-flex gap-2">
+                <a class="btn btn-warning" href="tel:+918105411046">
+                    <i class="fas fa-phone me-1"></i>Call
+                </a>
+                <a class="btn btn-success" href="https://wa.me/918105411046" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+      // Make logo open the sidebar offcanvas
+      document.addEventListener('DOMContentLoaded', function () {
+        var logo = document.querySelector('.navbar-brand img');
+        if (logo) {
+          logo.style.cursor = 'pointer';
+          logo.addEventListener('click', function (e) {
+            e.preventDefault();
+            var sidebar = document.getElementById('sidebarMenu');
+            var bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(sidebar);
+            bsOffcanvas.show();
+          });
+        }
+      });
+    </script>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            
+            <h1>Discover Your Dream Home in Bangalore</h1>
+            <p>Leveraging our people power and market insights, we are redefining real estate marketing to guarantee our
+                customers receive a better deal with a better feel.</p>
+            <div class="hero-search">
+                <div class="search-box">
+                    <input type="text" placeholder="Search by location, property type...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Properties Sold</p>
+                </div>
+                <div class="stat">
+                    <h3>9+</h3>
+                    <p>Years of Combined Experience</p>
+                </div>
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat">
+                    <h3>110%</h3>
+                    <p>Customer Satisfaction</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-overlay"></div>
+        </div>
+        <!-- Right enquiry card like the mock -->
+        <div class="enquiry-card">
+            <h3>CONTACT US </h3>
+            <small>ENQUIRE NOW</small>
+            <form class="mt-3">
+                <div class="mb-2"><input class="form-control" type="text" placeholder="Name*" required></div>
+                <div class="mb-2"><input class="form-control" type="tel" placeholder="Mobile Number*" required></div>
+                <div class="mb-3"><input class="form-control" type="email" placeholder="Email Id*" required></div>
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section id="properties" class="properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <p>Explore our handpicked selection of premium properties in Bangalore</p>
+            </div>
+
+            <div class="property-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="apartment">Apartments</button>
+                <button class="filter-btn" data-filter="villa">Villas</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+            </div>
+
+            <div class="properties-grid">
+                <div class="property-card" data-category="villa">
+                    <div class="property-image">
+                        <div class="property-badge">New</div>
+                        <img src="./image/10.webp" alt="Modern Villa">
+                    </div>
+                    <div class="property-content">
+                        <h3>NBR-Soul of the Seasons</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Mullur, Off Sarjapur Road,
+                            Bangalore </p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 4 BHK</span>
+                            <span><i class="fas fa-bath"></i> 3 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,180 – 1,275 sq. ft</span>
+                        </div>
+                        <div class="property-price">
+                            <h4>₹60.8 – ₹67.3 Lakhs</h4>
+                            <p>₹58,00/sq ft</p>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card" data-category="villa">
+                    <div class="property-image">
+                        <div class="property-badge ">New</div>
+                        <img src="./image/logo.webp" alt="Modern Villa">
+                    </div>
+                    <div class="property-content">
+                        <h3>Sanjeevini The Adwaith</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Gunjur, Varthur, East
+                            Bangalore </p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 4 BHK</span>
+                            <span><i class="fas fa-bath"></i> 3 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,545 – 1,950 sq. ft</span>
+                        </div>
+                        <div class="property-price">
+                            <h4>₹1.79 Cr – ₹2.27 Cr</h4>
+                            <p>₹11,590 per sq. ft</p>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card" data-category="commercial">
+                    <div class="property-image">
+                        <div class="property-badge">Hot Deal</div>
+                        <img src="./image/11.webp" alt="Commercial Space">
+                    </div>
+                    <div class="property-content">
+                        <h3>Commercial Space in MG Road</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> MG Road, Bangalore</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-building"></i> Office Space</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-ruler-combined"></i> 5,000 sq ft</span>
+                        </div>
+                        <div class="property-price">
+                            <h4>₹8.5 Cr</h4>
+                            <p>₹17,000/sq ft</p>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card" data-category="apartment">
+                    <div class="property-image">
+                        <img src="./image/12.webp" alt="Premium Apartment">
+                    </div>
+                    <div class="property-content">
+                        <h3>Premium Apartment in Indiranagar</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Indiranagar, Bangalore</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i>2 BHK</span>
+                            <span><i class="fas fa-bath"></i>2 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i>1,200 sq ft</span>
+                        </div>
+                        <div class="property-price">
+                            <h4>₹1.8 Cr</h4>
+                            <p>₹15,000/sq ft</p>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card" data-category="villa">
+                    <div class="property-image">
+                        <img src="./image/11.webp" alt="Luxury Villa">
+                    </div>
+                    <div class="property-content">
+                        <h3>Luxury Villa in Sarjapur</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Sarjapur, Bangalore</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 5 BHK</span>
+                            <span><i class="fas fa-bath"></i> 4 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 4,500 sq ft</span>
+                        </div>
+                        <div class="property-price">
+                            <h4>₹5.2 Cr</h4>
+                            <p>₹11,556/sq ft</p>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card" data-category="commercial">
+                    <div class="property-image">
+                        <img src="./image/52.webp" alt="Retail Space">
+                    </div>
+                    <div class="property-content">
+                        <h3>Retail Space in Jayanagar</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Jayanagar, Bangalore</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-store"></i> Retail</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,500 sq ft</span>
+                        </div>
+                        <div class="property-price">
+                            <h4>₹4.2 Cr</h4>
+                            <p>₹16,800/sq ft</p>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 style="margin-bottom: 1rem; color: #fff3f3;">About Whitestones</h2>
+                    <p style="margin-bottom: 1rem; color: #fff3f3;"> Whitestone Properties Management Pvt Ltd is a
+                        Bangalore-based real estate company specializing in
+                        property advisory and construction services across Bangalore. We collaborate with leading
+                        builders such as Sobha, Prestige, and other reputed mid-scale and small-scale developers,
+                        offering clients the best deals in residential and commercial spaces. Alongside property
+                        advisory, we also undertake construction and project management, ensuring quality, transparency,
+                        and timely delivery. Our goal is to help customers find their dream homes, invest smartly, and
+                        build lasting assets in Bangalore’s booming real estate market.</p>
+
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4 style="margin-bottom: 1rem; color: #fefeff;">Trusted & Reliable</h4>
+                            <p style="margin-bottom: 1rem; color: #fefeff;">9+ years of excellence in real estate</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h4 style="margin-bottom: 1rem; color: #fefeff;">Prime Locations</h4>
+                            <p style="margin-bottom: 1rem; color: #fefeff;">Electronic City, Sarjapur, Gunjur,
+                                Whitefield, Old Airport Road</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-handshake"></i>
+                            <h4 style="margin-bottom: 1rem; color: #fefeff;">Personalized Service</h4>
+                            <p style="margin-bottom: 1rem; color: #fefeff;">Dedicated support throughout your journey
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="company-info"
+                        style="margin-top: 2rem; padding: 1.5rem; border: 1px solid #ffffffb1; border-radius: 12px; background: #221d1d70;">
+                        <h3 style="margin-bottom: 1rem; color: #fff3f3;">Company Information</h3>
+                        <ul
+                            style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; color: #fffefe; gap: 0.6rem;">
+                            <li><strong>Legal Name:</strong> Whitestone Properties Management Private Limited</li>
+                            <li><strong>Corporate Identification Number (CIN):</strong> U68200KA2024PTC194102</li>
+                            <li><strong>Incorporation Date:</strong> 18 October 2024</li>
+                            <li><strong>Status:</strong> Active</li>
+                            <li><strong>Registered Office:</strong> No 2,143/144 2nd Cross, Gunjur Palya Ex-Service,
+                                Gunjur, Bengaluru North, Karnataka – 560087</li>
+                            <li><strong>Directors at incorporation:</strong> Moinul Rahman, Steffy Ranglong</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <div class="about-image">
+                        <img src="./image/21.webp" alt="Bangalore Cityscape">
+                    </div>
+                    <div class="about-image">
+                        <img src="./image/22.webp" alt="Bangalore Cityscape">
+                    </div>
+                    <div class="about-image">
+                        <img src="./image/23.webp" alt="Bangalore Cityscape">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="achievements">
+                <div class="section-header">
+                    <h2>Achievements</h2>
+                    <p>Milestones we are proud of</p>
+                </div>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h3>500+</h3>
+                        <p>Properties Sold</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>50+</h3>
+                        <p>Years of Combined Experience</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>50+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>110%</h3>
+                        <p>Customer Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="services">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>End-to-end real estate solutions across Bangalore</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-home"></i>
+                        <h4>Property Advisory</h4>
+                        <p>Buying, selling, and renting of residential and commercial properties.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Builder Collaboration</h4>
+                        <p>Partnerships with Sobha, Prestige, and reputed mid/small-scale developers.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-hard-hat"></i>
+                        <h4>Construction Services</h4>
+                        <p>Turnkey construction for villas, apartments, and commercial spaces.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Investment Consulting</h4>
+                        <p>Land acquisition, plots, and curated investment opportunities.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-building"></i>
+                        <h4>Property Management</h4>
+                        <p>End-to-end property management and tenant lifecycle support.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-couch"></i>
+                        <h4>Interior Design</h4>
+                        <p>Complete interiors and space customization solutions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+
+            <!-- Gallery Section -->
+            <div class="gallery">
+                <div class="section-header">
+                    <h2>Gallery</h2>
+                    <p>Snapshots of Bangalore and our work</p>
+                </div>
+                <div class="gallery-grid">
+                    <img src="./image/31.webp" alt="Bangalore Skyline">
+                    <img src="./image/30.webp" alt="Modern Apartment">
+                    <img src="./image/35.webp" alt="Construction Site">
+                    <img src="./image/33.webp" alt="Office Interior">
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+
+            <!-- Call To Action -->
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div>
+                    <div class="footer-logo">
+                        <h3><i class="fas fa-building"></i>whitestonesproperties/RB Developers</h3>
+                        <p>Construction/property advisor company in Bangalore
+                        <div class="social-links" aria-label="Social links">
+                            <a href="https://wa.me/918105411046" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                                aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100083149571458" target="_blank"
+                                rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/in/vishal-gupta-909679382/" target="_blank" rel="noopener"
+                                aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-location-dot"></i> 144, 4th cross, 2nd main, Gunjur Paliya, Bangalore,
+                            Karnataka</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+918105411046">081054 11046</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:contactrbdevelopers@gmail.com">contactrbdevelopers@gmail.com</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://rbdevelopers.in" target="_blank"
+                                rel="noopener">rbdevelopers.in</a></li>
+                        <li><i class="fas fa-clock"></i> Always open</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#properties">Projects</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#testimonials">Reviews (0)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#" rel="nofollow">Privacy Policy</a></li>
+                        <li><a href="#" rel="nofollow">Terms of Use</a></li>
+                        <li><a href="#" rel="nofollow">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-legal">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 RB Developers. All rights reserved.</p>
+                    <p class="developer-credit">Whitestone Properties Management Private Limited</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a class="whatsapp-float" href="https://wa.me/918105411046" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "RB Developers",
+  "url": "https://rbdevelopers.in",
+  "logo": "",
+  "description": "RB Developers is a construction company based in Bangalore, Karnataka.",
+  "telephone": "+91 8105411046",
+  "email": "contactrbdevelopers@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "144, 4th cross, 2nd main, Gunjur Paliya",
+    "addressLocality": "Bangalore",
+    "addressRegion": "Karnataka",
+    "postalCode": "560087",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://wa.me/918105411046",
+    "https://www.instagram.com/",
+    "https://www.facebook.com/",
+    "https://www.linkedin.com/jobs/"
+  ]
+}
+</script>
