@@ -26,6 +26,7 @@ Currently, it includes:
 README.md → This file, which explains Git workflow, branch usage, and project structure.
 
 ⚡ Recommended Git Workflow
+
 1️⃣ Check Current Branch
 git status       # See if working tree is clean
 git branch       # Check current branch
